@@ -21,11 +21,11 @@ class Mahasiswa extends Model
         return $this->hasOne('App\Models\Wali','id_mahasiswa');
     }
     
-    // /**
-    //  * relasi one to many
-    //  */
-    // public function dosen()
-    // {
-    //     return $this->belongsTo('App\Models\Dosen','id_dosen');
-    // }
+    /**
+     * relasi one to many
+     */
+    public function dosen()
+    {
+        return $this->belongsTo('App\Models\Dosen','id_dosen');
+    }
 }

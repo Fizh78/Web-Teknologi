@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Mahasiswa;
 use App\Models\Wali;
+use App\Models\Dosen;
 use Illuminate\Support\Facades\DB;
 
 class RelasiSeeder extends Seeder
@@ -18,20 +19,29 @@ class RelasiSeeder extends Seeder
         DB::table('mahasiswas')->delete();
         DB::table('walis')->delete();
 
+        //seeder dosen
+        DB::table('dosens')->delete();
+        $dosen = Dosen::create(array(
+            'nama'=>'Eko',
+            'nipd'=>'1234567890'
+        ));
 
         $ani = Mahasiswa::create(array(
             'nama' => 'Ani',
             'nim' => 'D112111001',
+            'id_dosen' => $dosen->id
         ));
 
         $budi = Mahasiswa::create(array(
             'nama' => 'Budi',
             'nim' => 'D112111002',
+            'id_dosen' => $dosen->id
         ));
 
         $nia = Mahasiswa::create(array(
             'nama' => 'Nia',
             'nim' => 'D112111003',
+            'id_dosen' => $dosen->id
         ));
 
         $this->command->info('Mahasiswa telah diisi!');
